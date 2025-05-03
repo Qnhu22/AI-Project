@@ -59,8 +59,6 @@ def solve_maze_bfs(maze, start, goal):
 # Hàm thuật toán A*
 def heuristic(p1, p2):
     return abs(p1[0] - p2[0]) + abs(p1[1] - p2[1])    #f(n)=g(n)+h(n)
-
-
 def solve_maze_astar(maze, start, goal):
 
     rows = len(maze)
@@ -211,6 +209,7 @@ def heuristic(a, b):
     return abs(a[0] - b[0]) + abs(a[1] - b[1])
 
 
+
 def solve_maze_ucs(maze, start, goal):
     rows = len(maze)
     cols = len(maze[0])
@@ -296,6 +295,9 @@ def stochastic_hill_climbing(maze, start, goal, max_iterations=1000):
         iteration += 1
 
     return path if current == goal else None
+
+
+
 
 
 def beam_search(maze, start, goal, beam_width=3):
