@@ -1,4 +1,4 @@
-import pygame 
+import pygame
 from Config import cell_width, cell_height
 from AI import solve_maze_bfs, solve_maze_astar, simulated_annealing_path, solve_maze_ucs, stochastic_hill_climbing, beam_search
 
@@ -25,9 +25,10 @@ class Boat:
         self.step_count = 0
         self.start_position = (x, y)  # Lưu vị trí bắt đầu
         self.end_position = None      # Lưu vị trí cuối cùng
+        self.monster_path = [(self.row, self.col)]  # Quản lý đường đi riêng trong Boat
 
     def update_path(self, maze, target, algorithm):
-    # Chỉ in nếu là thuật toán mới hoặc chưa có path
+        # Chỉ in nếu là thuật toán mới hoặc chưa có path
         if self.algorithm_selected != algorithm or not self.path:
             print(f"Running {algorithm} for boat at ({self.row}, {self.col})")
 
@@ -49,33 +50,38 @@ class Boat:
             self.path = []
             print(f"No path found using {algorithm}. Boat remains at {self.end_position}.")
 
-        self.algorithm_selected = algorithm  # ✅ Ghi nhớ thuật toán đã chọn
+        self.algorithm_selected = algorithm  # Ghi nhớ thuật toán đã chọn
         self.path_index = 0
 
         if not self.path:
             print(f"No path found using {algorithm}. Boat remains at ({self.row}, {self.col}).")
 
-
     def move(self, maze):
         current_time = pygame.time.get_ticks()
         if current_time - self.last_move_time >= self.move_delay:
             if not self.path:
-                print("Boat has no path.")
-                return  # Không có đường đi
+                # Chỉ in thông báo một lần khi không có đường đi
+                if not hasattr(self, 'path_warning_printed'):
+                    print("Boat has no path.")
+                    self.path_warning_printed = True
+                return
+            self.path_warning_printed = False  # Reset cờ khi có đường đi
+
             if self.path_index < len(self.path):
                 direction = self.path[self.path_index]
                 next_row = self.row + direction[0]
                 next_col = self.col + direction[1]
-                if 0 <= next_row < len(maze) and 0 <= next_col < len(maze[0]) and maze[next_row][next_col] == 0:
+                if (0 <= next_row < len(maze) and 0 <= next_col < len(maze[0]) and
+                    maze[next_row][next_col] == 0):  # 0 là đường đi
                     self.row = next_row
                     self.col = next_col
                     self.path_index += 1
-                    self.step_count += 1  # Cập nhật số bước
+                    self.step_count += 1
+                    self.monster_path.append((self.row, self.col))  # Cập nhật đường đi
                     print(f"Boat moved to ({self.row}, {self.col}), Step Count: {self.step_count}")
                 else:
                     print("Boat cannot move to the next cell.")
             else:
-                # Cập nhật vị trí cuối cùng
                 self.end_position = (self.row, self.col)
                 print(f"Boat reached the end of its path at {self.end_position}.")
             self.last_move_time = current_time
@@ -84,3 +90,6 @@ class Boat:
         x = self.col * cell_width
         y = self.row * cell_height
         surface.blit(self.image, (x, y))
+
+    def get_monster_path(self):
+        return self.monster_path
