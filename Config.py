@@ -10,7 +10,11 @@ screen_width, screen_height = info.current_w, info.current_h
 screen = pygame.display.set_mode((screen_width, screen_height), pygame.RESIZABLE)
 
 # mở ma trận
-maze_size = 10
+with open('difficulty.txt', 'r') as f:
+    content = f.read().strip()
+    print(f"Đọc từ difficulty.txt: '{content}'")
+    maze_size = int(content)
+
 with open(f"Maze/{maze_size}.txt", 'r') as f:
     maze_matrix = json.load(f)
 
@@ -36,14 +40,9 @@ goal_image = pygame.transform.scale(goal_image, (cell_width, cell_height))
 goal_rect = goal_image.get_rect()
 
 key_image = pygame.image.load('Image/key.jpg')
-planet_images = [
-    pygame.image.load('Image/planet1.png'),
-    pygame.image.load('Image/planet2.png'),
-    pygame.image.load('Image/planet3.png')
-]
 
 # Tải âm thanh
-pygame.mixer.music.load('Sound/8bit.mp3')
+pygame.mixer.music.load('Sound/game.mp3')
 pygame.mixer.music.set_volume(0.3)
 pygame.mixer.music.play()
 
