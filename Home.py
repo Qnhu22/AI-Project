@@ -78,15 +78,21 @@ def draw_instruction_box():
     pygame.draw.rect(screen, Colors.PURPLE_2, (screen_width // 4 - 5, screen_height // 4 - 5, screen_width // 2 + 10, screen_height // 2 + 10), 5, 15)
     
     # Tiêu đề
-    title_font = pygame.font.Font("Font/Jomplang-6Y3Jo.ttf", 40)
+    title_font = pygame.font.Font("Font/Arialn.ttf", 30)
     title_text = title_font.render("Instruction", True, Colors.DARK_BLUE)
     title_rect = title_text.get_rect(center=(screen_width // 2, screen_height // 4 + 30))
     screen.blit(title_text, title_rect)
     
     # Nội dung Instruction
-    content_font = pygame.font.Font("Font/Jomplang-6Y3Jo.ttf", 28)
-    instruction_text = """Happy happy happy
-    """
+    content_font = pygame.font.Font("Font/Arialn.ttf", 28)
+    instruction_text = """
+    How to Play:
+- Use arrow keys to move your character.
+- Collect all the keys before reaching the goal (the Moon).
+- Avoid the monster. If it catches you, you lose.
+- Reaching the goal without all keys also results in a loss.
+- Choose difficulty and AI algorithm before starting.
+"""
     
     content_lines = instruction_text.split('\n')
     y_offset = screen_height // 4 + 80  # Vị trí ban đầu

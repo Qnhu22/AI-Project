@@ -28,9 +28,9 @@ def create_buttons(screen_width, screen_height):
         "simulated_annealing": pygame.Rect(button_x, algorithm_buttons_y + y_offset * 5, button_width, button_height),
         "ucs": pygame.Rect(button_x, algorithm_buttons_y + y_offset * 6, button_width, button_height),
         "beam_search": pygame.Rect(button_x, algorithm_buttons_y + y_offset * 7, button_width, button_height),
+        "q_learning": pygame.Rect(button_x, algorithm_buttons_y + y_offset * 8, button_width, button_height),
         
-        # Dời các nút xuống gần đáy
-        "show_path": pygame.Rect(screen_width - 300, screen_height - bottom_y_offset * 5, 200, 60),  # Nút Show Path
+        "show_path": pygame.Rect(screen_width - 300, screen_height - bottom_y_offset * 5, 200, 60),
         "reset": pygame.Rect(screen_width - 300, screen_height - bottom_y_offset * 4, 200, 60),
         "algorithm_menu": pygame.Rect(screen_width - 300, screen_height - bottom_y_offset * 3, 200, 60),
         "exit": pygame.Rect(screen_width - 300, screen_height - bottom_y_offset * 2, 200, 60),
