@@ -67,7 +67,7 @@ def draw_monster_path(boat):
         pygame.draw.circle(screen, Colors.PINK, start_pos, 8)
 
 def reset_game():
-    global player_step_counter, keys, collected_keys, algorithm_selected, game_over, player_won, ai_active, start_time, num_keys, show_algorithm_panel, monster_start_time, monster_elapsed_time, show_path, path_printed, is_reset_allowed, trained_path
+    global player_step_counter, keys, collected_keys, algorithm_selected, game_over, player_won, ai_active, start_time, num_keys, show_algorithm_panel, monster_start_time, monster_elapsed_time, show_path, path_printed, is_reset_allowed, trained_path, win_display_start_time, sound_played
 
     player.reset_position()
     player_step_counter = 0
@@ -102,6 +102,9 @@ def reset_game():
     show_algorithm_panel = False
     print("Game reset")
     is_reset_allowed = False
+    win_display_start_time = None
+    sound_played = False
+
 
 win_sound = pygame.mixer.Sound("Sound/chucmung.wav")
 lose_sound = pygame.mixer.Sound("Sound/lose.wav")
