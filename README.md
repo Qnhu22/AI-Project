@@ -51,6 +51,16 @@ Dự án xây dựng một trò chơi mê cung (maze game) trong đó **quái v�
 - [Dương Quỳnh Như]
 
 ---
+## MÔ PHỎNG HỆ THỐNG
+## BFS
+![Image](https://github.com/user-attachments/assets/f34acf86-b06e-4589-bc02-d3dab942c20d)
+## A *
+![Image](https://github.com/user-attachments/assets/847c6f1d-a7fe-4eef-9c35-08bdc3995c62)
+## Simulated Annealing
+![Image](https://github.com/user-attachments/assets/5751b9e7-a433-470d-8749-a3606270dbac)
+## Stochastic Hill Climbing
+![Image](https://github.com/user-attachments/assets/81a18f6a-c99d-477c-bbbb-5222d87bd72a)
+##
 
  *Dự án mang tính học thuật cao, mô phỏng hệ thống trò chơi AI vào môi trường tương tác để nâng cao hiểu biết về thuật toán tìm kiếm.*
 
