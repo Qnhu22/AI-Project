@@ -45,12 +45,6 @@ Dự án xây dựng một trò chơi mê cung (maze game) trong đó **quái v�
 - Bổ sung chức năng cho phép người dùng tự tạo bản đồ mê cung hoặc sinh bản đồ ngẫu nhiên
 - Phát triển chế độ nhiều người chơi để tăng tính tương tác và tích hợp hệ thống chấm điểm cũng như bảng xếp hạng để tạo động lực cho người chơi.
 - Tối ưu hóa thuật toán cho môi trường phức tạp và mê cung lớn hơn.
-##  Thành viên nhóm
-- [Nguyễn Thị Phương Thanh] 
-- [Lê Hồ Chí Bảo]
-- [Dương Quỳnh Như]
-
----
 ## MÔ PHỎNG HỆ THỐNG
 ## BFS
 ![Image](https://github.com/user-attachments/assets/f34acf86-b06e-4589-bc02-d3dab942c20d)
@@ -60,7 +54,15 @@ Dự án xây dựng một trò chơi mê cung (maze game) trong đó **quái v�
 ![Image](https://github.com/user-attachments/assets/5751b9e7-a433-470d-8749-a3606270dbac)
 ## Stochastic Hill Climbing
 ![Image](https://github.com/user-attachments/assets/81a18f6a-c99d-477c-bbbb-5222d87bd72a)
-##
+## UCS (Uniform Cost Search)
+![Image](https://github.com/user-attachments/assets/7261a41f-84f6-4d5c-8aab-4c94ad7525b9)
+## Q-Learning
+![Image](https://github.com/user-attachments/assets/455fe06e-5a7e-4000-b95d-2219bf8562db)
 
+##  Thành viên nhóm
+- [Nguyễn Thị Phương Thanh] 
+- [Lê Hồ Chí Bảo]
+- [Dương Quỳnh Như]
+---
  *Dự án mang tính học thuật cao, mô phỏng hệ thống trò chơi AI vào môi trường tương tác để nâng cao hiểu biết về thuật toán tìm kiếm.*
 
