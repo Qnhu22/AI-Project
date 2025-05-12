@@ -45,6 +45,8 @@ Dự án xây dựng một trò chơi mê cung (maze game) trong đó **quái v�
 - Bổ sung chức năng cho phép người dùng tự tạo bản đồ mê cung hoặc sinh bản đồ ngẫu nhiên
 - Phát triển chế độ nhiều người chơi để tăng tính tương tác và tích hợp hệ thống chấm điểm cũng như bảng xếp hạng để tạo động lực cho người chơi.
 - Tối ưu hóa thuật toán cho môi trường phức tạp và mê cung lớn hơn.
+## TÀI LIỆU THAM KHẢO
+- https://github.com/MyDung1012/Game_Maze_AI
 ## MÔ PHỎNG HỆ THỐNG
 ## BFS
 ![Image](https://github.com/user-attachments/assets/f34acf86-b06e-4589-bc02-d3dab942c20d)
