@@ -159,11 +159,11 @@ def simulated_annealing_path(maze, start, goal, max_iterations=1000, initial_tem
 def solve_maze_ucs(maze, start, goal):
     rows = len(maze)
     cols = len(maze[0])
-    open_set = []
-    heapq.heappush(open_set, (0, start))
+    open_set = []   #hàng đợi ưu tiên (ưu tiên chi phí nhỏ nhất).
+    heapq.heappush(open_set, (0, start))    #start=0
     visited = set()
-    came_from = {}
-    g_score = {start: 0}
+    came_from = {}  # truy ngược đường đi.
+    g_score = {start: 0}    #lưu chi phí từ start đến mỗi điểm
 
     while open_set:
         current_cost, current = heapq.heappop(open_set)
@@ -181,8 +181,8 @@ def solve_maze_ucs(maze, start, goal):
             next_col = current[1] + dy
             neighbor = (next_row, next_col)
             if 0 <= next_row < rows and 0 <= next_col < cols and maze[next_row][next_col] == 0:
-                tentative_g_score = current_cost + 1
-                if neighbor not in g_score or tentative_g_score < g_score[neighbor]:
+                tentative_g_score = current_cost + 1    #Chi phí tạm thời để đi từ start → neighbor là chi phí hiện tại + 1 bước
+                if neighbor not in g_score or tentative_g_score < g_score[neighbor]:    #Nếu chưa đi đến neighbor hoặc tìm được đường đi tốt hơn
                     came_from[neighbor] = current
                     g_score[neighbor] = tentative_g_score
                     heapq.heappush(open_set, (tentative_g_score, neighbor))
@@ -218,11 +218,11 @@ def stochastic_hill_climbing(maze, start, goal, max_iterations=1000):
     return path if current == goal else None
 
 def beam_search(maze, start, goal, beam_width=3):
-    open_list = []
+    open_list = []  #hàng đợi ưu tiên lưu các node cần duyệt.
     heapq.heappush(open_list, (0, start))
-    closed_set = set()
+    closed_set = set()  #lưu những node đã duyệt
     came_from = {}
-    g_score = {start: 0}
+    g_score = {start: 0}    #lưu chi phí từ start đến các node.
 
     while open_list:
         current = heapq.nsmallest(beam_width, open_list, key=lambda x: x[0])
@@ -247,7 +247,7 @@ def beam_search(maze, start, goal, beam_width=3):
                         if neighbor not in g_score or tentative_g_score < g_score[neighbor]:
                             came_from[neighbor] = state
                             g_score[neighbor] = tentative_g_score
-                            heapq.heappush(open_list, (g_score[neighbor] + heuristic(neighbor, goal), neighbor))
+                            heapq.heappush(open_list, (g_score[neighbor] + heuristic(neighbor, goal), neighbor))    #g:chi phí đã đi từ start,h: ước lượng từ neighbor đến goal. 
                         closed_set.add(neighbor)
 
     return None
